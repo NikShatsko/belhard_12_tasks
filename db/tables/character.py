@@ -13,3 +13,6 @@ class Character(Base):
     film_id = Column(Integer, ForeignKey("films.id", ondelete="CASCADE"), nullable=False)
 
     films = relationship("Film")
+
+    def __repr__(self):
+        return f"Character name = {self.name}"

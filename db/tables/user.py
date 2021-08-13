@@ -14,3 +14,14 @@ class User(Base):
 
     user_type = relationship("UserType")
     person = relationship("Person")
+
+    favorite_films = relationship(
+        "Film",
+        secondary="user_favorite_films",
+        backref="liked_by_users",
+        cascade="all, delete",
+        passive_deletes=True
+    )
+
+    def __repr__(self):
+        return f"User login = {self.login}"

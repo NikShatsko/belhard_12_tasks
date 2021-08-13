@@ -16,4 +16,14 @@ class Film(Base):
 
     persons = relationship("Person")
 
+    film_genres = relationship(
+        "Genre",
+        secondary="film_genres",
+        cascade="all, delete",
+        passive_deletes=True
+    )
+
+    def __repr__(self):
+        return f"Film id = {self.id}, film name = {self.name}"
+
 

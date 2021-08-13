@@ -4,7 +4,7 @@ from contextlib import contextmanager
 
 
 engine = create_engine('mysql+pymysql://root:251178bdfy@localhost:3306/film_zone')
-Session = sessionmaker(bind=engine)
+Session = sessionmaker(bind=engine, autocommit=False)
 
 
 @contextmanager
